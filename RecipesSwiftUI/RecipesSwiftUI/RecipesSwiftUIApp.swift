@@ -11,7 +11,11 @@ import SwiftUI
 struct RecipesSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                ContentView()
+
+            }
+            
         }
     }
 }

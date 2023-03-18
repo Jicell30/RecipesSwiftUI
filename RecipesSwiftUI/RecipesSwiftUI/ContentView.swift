@@ -9,13 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        
+        TabView {
+                    CategoryRow()
+                        .tabItem {
+                            Image(systemName: "person")
+                        }
+          
+                
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass.circle")
+                    }
+            }
+        .toolbar(.automatic, for: .tabBar)
+        .toolbarColorScheme(ColorScheme(.dark), for: .tabBar)
+        
+            .navigationDestination(for: Category.self) { category in
+               MealsView(category: category)
+            }
+            .navigationDestination(for: Meal.self) { recipe in
+                RecipeMealView(meal: recipe)
+            }
+        
     }
 }
 
@@ -24,3 +40,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
