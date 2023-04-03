@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 //MARK: - SearchView
 struct SearchView: View {
@@ -38,16 +37,16 @@ struct SearchView: View {
                 VStack {
                 if vm.searchRecipes.isEmpty {
                     withAnimation(.easeIn(duration: 3)){
-                        Text("Please search a Recipe")
+                        Text("Please search a recipe")
                             .font(.headline)
                             .foregroundColor(.red)
                     }
                     
                 } else {
-                    ForEach(vm.searchRecipes, id:\.self){recipe in
-                        NavigationLink(value: recipe) {
+                    ForEach(vm.searchRecipes, id:\.self){meal in
+                        NavigationLink(value: meal) {
                             withAnimation(.easeIn(duration: 3)){
-                                MealCardView(meal: recipe)
+                                MealCardView(meal: meal)
                                 
                             }
                         }
@@ -64,9 +63,9 @@ struct SearchView: View {
         .background{
             Color("BgColor").ignoresSafeArea()
         }
+        //.onChange listens to new value on the @published variable(searchRecipe)
         .onChange(of: vm.searchRecipe) { newValue in
             vm.debouncedText = newValue
-          
         }
     }
 }

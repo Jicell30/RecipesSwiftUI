@@ -10,11 +10,10 @@ import SwiftUI
 struct MealsView: View {
     @StateObject var mealsViewModel: MealsViewModel
     
-    
-    
     init(category: Category) {
         self._mealsViewModel = StateObject(wrappedValue:  MealsViewModel(category: category))
     }
+    
     var body: some View {
         ScrollView {
             LazyVStack {
@@ -22,7 +21,6 @@ struct MealsView: View {
                     NavigationLink(value: meal) {
                         MealCardView(meal: meal)
                     }
-                   
                 }
             }
         }

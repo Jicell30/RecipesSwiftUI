@@ -10,7 +10,10 @@ import SwiftUI
 struct CategoryView: View {
     var category: Category
     var body: some View {
+        //Horizontal stack goes left to right
         HStack {
+            // AsyncImage: Asyncronistly downloading an image from an URL
+            //Uses the default URLSession cache
             AsyncImage(url: category.imageURL) { image in
                 image
                     .resizable()
@@ -34,6 +37,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
+        //This is where testing for previews view is provided
         CategoryView(category: .categoryTest)
     }
 }

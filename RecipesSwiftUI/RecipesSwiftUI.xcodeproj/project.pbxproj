@@ -35,6 +35,9 @@
 		5F919C6429C559E300CCE61D /* RecipesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F919C6329C559E300CCE61D /* RecipesSwiftUITests.swift */; };
 		5F919C6C29C55A4300CCE61D /* APIMockServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F919C6B29C55A4300CCE61D /* APIMockServices.swift */; };
 		5F919C6E29C571A400CCE61D /* TabMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F919C6D29C571A400CCE61D /* TabMeal.swift */; };
+		5FA8789229DA45E300FCF1E1 /* MainDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8789129DA45E300FCF1E1 /* MainDependenciesResolver.swift */; };
+		5FA8789429DA479D00FCF1E1 /* CategoryDependenciesResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8789329DA479D00FCF1E1 /* CategoryDependenciesResolver.swift */; };
+		5FA8789629DA49BF00FCF1E1 /* ModuleDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8789529DA49BF00FCF1E1 /* ModuleDependencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		5F919C6329C559E300CCE61D /* RecipesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesSwiftUITests.swift; sourceTree = "<group>"; };
 		5F919C6B29C55A4300CCE61D /* APIMockServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMockServices.swift; sourceTree = "<group>"; };
 		5F919C6D29C571A400CCE61D /* TabMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMeal.swift; sourceTree = "<group>"; };
+		5FA8789129DA45E300FCF1E1 /* MainDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDependenciesResolver.swift; sourceTree = "<group>"; };
+		5FA8789329DA479D00FCF1E1 /* CategoryDependenciesResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDependenciesResolver.swift; sourceTree = "<group>"; };
+		5FA8789529DA49BF00FCF1E1 /* ModuleDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDependencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				5F919C0E29C4E67000CCE61D /* Assets.xcassets */,
 				5F919C1029C4E67000CCE61D /* Preview Content */,
 				5F919C6D29C571A400CCE61D /* TabMeal.swift */,
+				5FA8789529DA49BF00FCF1E1 /* ModuleDependencies.swift */,
 			);
 			path = RecipesSwiftUI;
 			sourceTree = "<group>";
@@ -139,6 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				5F919C1129C4E67000CCE61D /* Preview Assets.xcassets */,
+				5FA8789129DA45E300FCF1E1 /* MainDependenciesResolver.swift */,
+				5FA8789329DA479D00FCF1E1 /* CategoryDependenciesResolver.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -446,10 +455,12 @@
 				5F919C4129C5008E00CCE61D /* MealCardView.swift in Sources */,
 				5F919C2429C4EFD200CCE61D /* Meal.swift in Sources */,
 				5F919C3029C4F9C200CCE61D /* NetworkPersistence.swift in Sources */,
+				5FA8789629DA49BF00FCF1E1 /* ModuleDependencies.swift in Sources */,
 				5F919C2229C4EF6E00CCE61D /* CategoryResponse.swift in Sources */,
 				5F919C3629C4FD7100CCE61D /* CategoryViewModel.swift in Sources */,
 				5F919C6E29C571A400CCE61D /* TabMeal.swift in Sources */,
 				5F919C2929C4F28200CCE61D /* MealResponse.swift in Sources */,
+				5FA8789429DA479D00FCF1E1 /* CategoryDependenciesResolver.swift in Sources */,
 				5F919C3829C4FDC400CCE61D /* CategoryRow.swift in Sources */,
 				5F919C0D29C4E66E00CCE61D /* ContentView.swift in Sources */,
 				5F919C4E29C505DF00CCE61D /* RecipeMealView.swift in Sources */,
@@ -465,6 +476,7 @@
 				5F919C0B29C4E66E00CCE61D /* RecipesSwiftUIApp.swift in Sources */,
 				5F919C5A29C50C3E00CCE61D /* String+.swift in Sources */,
 				5F919C2E29C4F97F00CCE61D /* NetworkInterface.swift in Sources */,
+				5FA8789229DA45E300FCF1E1 /* MainDependenciesResolver.swift in Sources */,
 				5F919C2729C4F1FE00CCE61D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

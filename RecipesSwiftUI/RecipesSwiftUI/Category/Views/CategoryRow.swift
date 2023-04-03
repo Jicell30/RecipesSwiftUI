@@ -8,37 +8,38 @@
 import SwiftUI
 
 struct CategoryRow: View {
-    @ObservedObject var mealVm = CategoryViewModel()
-    
+    @ObservedObject var mealVm: CategoryViewModel
     var body: some View {
-        
-        
-        
-            ScrollView {
-                LazyVStack {
-                    
-                
+        ScrollView {
+            LazyVStack {
                 ForEach(mealVm.categories,id:\.self){meal in
                     NavigationLink(value: meal) {
                         CategoryView(category: meal)
                     }
                 }
-                }
             }
-            .background {
-                Color("BgColor")
-                    .ignoresSafeArea()
+        }
+        .background {
+            Color("BgColor")
+                .ignoresSafeArea()
+        }
+        .alert("Error connection", isPresented: $mealVm.showAlert, actions: {
+            Button {
+                
+            } label: {
+                Text("OK")
             }
-            .navigationTitle("Meals")
-            .toolbarBackground( Color("cardColor").opacity(0.6), for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-
-        
+        }, message: {
+            Text(mealVm.errorMsg)
+        })
+        .navigationTitle("Meals")
+        .toolbarBackground( Color("cardColor").opacity(0.6), for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
     }
 }
 
 struct MealRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRow()
+        CategoryRow(mealVm: CategoryViewModel(dependencies: ModuleDependencies()))
     }
 }

@@ -13,7 +13,6 @@ struct RecipeMealView: View {
         self.recipeVM = RecipeMealViewModel(meals: meal)
     }
    
-   
     var body: some View {
         ScrollView{
             VStack{
@@ -65,7 +64,6 @@ struct RecipeMealView: View {
                                                 RoundedRectangle(cornerRadius: 2)
                                                     .foregroundColor(.red)
                                             }
-
                                     }
                                     .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottomTrailing)
                                 }
@@ -91,8 +89,6 @@ struct RecipeMealView: View {
                                 Text(ing.name)
                                     .font(.footnote)
 
-
-
                                 AsyncImage(url: URL(string:"".replaceWithPercentEncoding(name: ing.name))) { img in
                                     img
                                         .resizable()
@@ -104,15 +100,12 @@ struct RecipeMealView: View {
                                 }
                                 Spacer()
 
-
                             }
                             .font(.title3)
                             .padding(.horizontal, 12)
                         }
                     }
 
-//
-//
                 }
                 .foregroundColor(.white)
             }
@@ -122,10 +115,7 @@ struct RecipeMealView: View {
             Color("cardColor")
                 .ignoresSafeArea()
         }
-        
-       
     }
-   
 }
 
 struct RecipeMealView_Previews: PreviewProvider {

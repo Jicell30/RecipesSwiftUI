@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
-
+//DataProvider Protocol with the different networkCalls methods.
 protocol DataProvider {
     func queryJSON<T:Codable>(request:URLRequest,
                               type:T.Type,

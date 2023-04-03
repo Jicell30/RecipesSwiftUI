@@ -6,11 +6,11 @@
 //
 
 import Foundation
-struct MealResponse: Codable, Hashable{
+
+struct MealResponse: Codable, Hashable {
     let mealResponse: [Meal]
     
     enum CodingKeys: String, CodingKey {
         case mealResponse = "meals"
     }
-    
 }

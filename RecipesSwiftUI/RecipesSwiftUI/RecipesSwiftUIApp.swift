@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct RecipesSwiftUIApp: App {
+    let moduleDependencies = ModuleDependencies()
+    var contentView: ContentView {
+        moduleDependencies.resolve()
+    }
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                ContentView()
+                contentView
 
             }
             

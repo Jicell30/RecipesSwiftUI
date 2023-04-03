@@ -27,7 +27,6 @@ struct APIMockServices: DataProvider {
             .decode(type: T.self, decoder: decoder)
             .mapError {
                 if let apiError = $0 as? APIErrors {
-                    print(apiError)
                     return apiError
                 } else {
                  

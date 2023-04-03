@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    var dependencies: MainDependenciesResolver
+    var categoryView: CategoryRow {
+        dependencies.resolve()
+    }
+    
+    
     var body: some View {
         
         TabView {
-                    CategoryRow()
+           categoryView
                         .tabItem {
                             Image(systemName: "person")
                         }
@@ -26,7 +32,8 @@ struct ContentView: View {
         .toolbarColorScheme(ColorScheme(.dark), for: .tabBar)
         
             .navigationDestination(for: Category.self) { category in
-               MealsView(category: category)
+               
+                MealsView(category: category)
             }
             .navigationDestination(for: Meal.self) { recipe in
                 RecipeMealView(meal: recipe)
@@ -37,7 +44,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(dependencies: ModuleDependencies())
     }
 }
 

@@ -10,17 +10,15 @@ import SwiftUI
 struct TabMeal: View {
     var body: some View {
         TabView {
-            CategoryRow()
-                .tabItem {
-                    Image(systemName: "person")
-                }
+//            CategoryRow()
+//                .tabItem {
+//                    Image(systemName: "person")
+//                }
   
-        
         SearchView()
             .tabItem {
                 Image(systemName: "magnifyingglass.circle")
             }
-            
         }
     }
 }

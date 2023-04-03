@@ -8,9 +8,10 @@
 import Foundation
 import Combine
 
+// MARK: - NetworkPersistence will allow me to recover all the values from the Network
 final class NetworkPersistence:DataProvider {
     
-    /// Query
+    /// meals
     /// ```
     ///        getMealsCategory() -> AnyPublisher<CategoryResponse, APIErrors>
     ///```
@@ -26,13 +27,16 @@ final class NetworkPersistence:DataProvider {
     func getRecipeByName(name:String) -> AnyPublisher<MealResponse, APIErrors> {
       queryJSON(request: .request(url: .getRecipeByName(recipeName: name)), type: MealResponse.self)
     }
+    
+    //This is a generic reusable function that conforms to Codable. request is the URLRequest extension, decodes the data if statusOK returns data.
     func queryJSON<T:Codable>(request:URLRequest,
                               type:T.Type,
                               decoder:JSONDecoder = JSONDecoder(),
                               statusOK:Int = 200) -> AnyPublisher<T, APIErrors> {
+        
         URLSession.shared
-            .dataTaskPublisher(for: request)
-            .mapError { APIErrors.general($0) }
+            .dataTaskPublisher(for: request)// url request
+            .mapError { APIErrors.general($0) }// mapping the errors from my API errors
             .tryMap { data, response in
                 guard let response = response as? HTTPURLResponse else { throw APIErrors.nonHTTP }
                 if response.statusCode == statusOK {
@@ -44,7 +48,6 @@ final class NetworkPersistence:DataProvider {
             .decode(type: T.self, decoder: decoder)
             .mapError {
                 if let apiError = $0 as? APIErrors {
-                    print(apiError)
                     return apiError
                 } else {
                  

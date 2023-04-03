@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//MARK: - Errors
 enum APIErrors:Error {
     case general(Error)
     case json(Error)
@@ -30,6 +30,7 @@ enum APIErrors:Error {
     }
 }
 
+// MARK: - Get Method
 enum HTTPMethod:String {
     case get = "GET"
 //    case post = "POST"
@@ -37,12 +38,14 @@ enum HTTPMethod:String {
 //    case delete = "DELETE"
 }
 
+//NetworkInterface will allow me to make all the network calls to the server.
+//Configure productionServer
 let serverURL = URL.productionServer
 extension URL {
-    
-    static let productionServer = URL(string: "https://www.themealdb.com/api")! // Main URL
-    static let getMealCategories = serverURL.appending(component: "json/v1/1/categories.php") // Categories URL
-    
+    //Constructing the finalURL on each URLRequest
+    // creation of all the infrastructure I will need
+    static let productionServer = URL(string: "https://www.themealdb.com/api")! //Basic URL
+    static let getMealCategories = serverURL.appending(component: "json/v1/1/categories.php") // MealCategories URL
     
     /// Get a list of meals when a categories is selected
     /// ```
@@ -66,8 +69,6 @@ extension URL {
         serverURL.appending(path: "json/v1/1/search.php").appending(queryItems: [URLQueryItem(name: "s", value: recipeName)])
     }
 }
-
-
 extension URLRequest {
     /// search a recipe by name
     /// ```
